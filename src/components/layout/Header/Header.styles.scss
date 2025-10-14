@@ -1,0 +1,82 @@
+.header {
+  height: $header-height;
+  background: $c-white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  z-index: $z-header;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  &__menu-icon.anticon {
+    cursor: pointer;
+    font-size: 25px;
+    margin-right: 5px;
+    display: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include mobile-screen {
+      display: block;
+    }
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    img {
+      width: fit-content;
+    }
+  }
+
+  &__logo-title {
+    font-size: $font-size-xs;
+    font-weight: 700;
+    color: $c-text-primary;
+    max-width: 100px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__notification {
+    cursor: pointer;
+  }
+
+  &__balance {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    @include mobile-screen {
+      display: none;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+  }
+
+  &__strong {
+    font-size: $font-size-xs;
+    font-weight: 700;
+
+    > div:last-child {
+      color: $c-text-muted;
+      font-weight: 400;
+    }
+  }
+}
