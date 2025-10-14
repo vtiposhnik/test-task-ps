@@ -7,3 +7,4 @@ export const moonIcon = '/assets/svg/moon-icon.svg';
 export const langIcon = '/assets/svg/lang-icon.svg';
 export const pinIcon = '/assets/svg/pin-icon.svg';
 export const toggledPinIcon = '/assets/svg/pin-toggled-icon.svg';
+export const tooltipIcon = '/assets/svg/tooltip-icon.svg';

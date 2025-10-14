@@ -5,3 +5,7 @@ export const ipAddressIcon = '/assets/svg/reserved-cloudlets.svg';
 export const publicNetworkIcon = '/assets/svg/public-network-icon.svg';
 export const routerIcon = '/assets/svg/router-icon.svg';
 export const arrowDownIcon = '/assets/svg/arrow-down-icon.svg';
+export const cpuIcon = '/assets/svg/cpu-icon.svg';
+export const ramIcon = '/assets/svg/ram-icon.svg';
+export const nvmeDiskIcon = '/assets/svg/nvme-icon.svg';
+export const archiveDiskIcon = '/assets/svg/archive-disk-icon.svg';
