@@ -1,0 +1,58 @@
+.resource-input-container {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  position: relative;
+  min-width: 270px;
+}
+
+.resource-input__icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.resource-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.resource-input {
+  position: relative;
+  width: 100%;
+  border: 1px solid $c-border;
+  border-radius: $border-radius-lg;
+  padding: 10px 15px;
+  background-color: $c-white;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $c-primary;
+  }
+
+  &__label {
+    position: absolute;
+    top: -14px;
+    left: 14px;
+    background: $c-white;
+    padding: 0 6px;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    color: $c-text-primary;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  &__price {
+    margin-top: 4px;
+    font-size: $font-size-xs;
+    color: $c-text-primary;
+  }
+
+  &__price-amount {
+    font-weight: 700;
+  }
+}

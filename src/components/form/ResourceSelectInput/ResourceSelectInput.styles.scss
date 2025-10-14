@@ -1,0 +1,21 @@
+.resource-select-input {
+  .ant-select-arrow {
+    inset-inline-end: 3px;
+  }
+
+  .ant-select-selector {
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-select-selection-item {
+    font-weight: 700;
+    overflow: hidden;
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    scrollbar-width: none;
+  }
+}
