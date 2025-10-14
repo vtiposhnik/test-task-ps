@@ -1,9 +1,11 @@
 'use client';
 
+// libraries
 import { Button, Modal, Segmented } from 'antd';
+// components
 import { useState } from 'react';
 import { ResourceInput } from '@/components/form/ResourceInput/ResourceInput.component';
-import './page.styles.scss';
+// static
 import {
   cpuIcon,
   ramIcon,
@@ -13,13 +15,22 @@ import {
   routerIcon,
   publicNetworkIcon,
 } from '@/components/icons/formIcons';
-import { BrowseResourcesState, Period } from '@/app/platform/browse/page.types';
+// types
+import {
+  BrowseResourcesState,
+  Period,
+  PublicNetwork,
+  RouterType,
+} from '@/app/platform/browse/page.types';
+// config
 import {
   BROWSE_RESOURCES_INITIAL_STATE,
   calcluateBrowseTotal,
   PUBLIC_NETWORK_OPTIONS,
   ROUTER_OPTIONS,
 } from '@/app/platform/browse/page.config';
+// styles
+import './page.styles.scss';
 
 const PERIOD_OPTIONS = [
   { label: 'в час', value: 'hour' },
@@ -102,7 +113,7 @@ export default function Browse() {
             iconSrc={publicNetworkIcon}
             label="Публичная сеть"
             value={resources.publicNetwork}
-            onChange={(v) => handleChange('publicNetwork', v)}
+            onChange={(v) => handleChange('publicNetwork', v as PublicNetwork)}
             options={PUBLIC_NETWORK_OPTIONS}
           />
           <ResourceInput
@@ -110,7 +121,7 @@ export default function Browse() {
             iconSrc={routerIcon}
             label="Маршрутизатор"
             value={resources.router}
-            onChange={(v) => handleChange('router', v)}
+            onChange={(v) => handleChange('router', v as RouterType)}
             options={ROUTER_OPTIONS}
             hasTooltip
           />

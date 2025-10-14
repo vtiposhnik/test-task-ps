@@ -1,9 +1,12 @@
+// libraries
+import Image from 'next/image';
 // components
 import { bellIcon } from '@/components/icons/common';
 // helpers
 import { classNames } from '@/shared/utils/classNames';
 // styles
 import './NotificationIndicator.styles.scss';
+
 interface NotificationIndicatorProps {
   hasNotification?: boolean;
 }
@@ -17,7 +20,7 @@ export const NotificationIndicatorComponent = ({
 
   return (
     <div className={classNames('notification-indicator', indicatorMods)}>
-      <img src={bellIcon} alt="bell" width={16} height={16} />
+      <Image src={bellIcon} alt="bell" width={16} height={16} />
       {hasNotification && <span className="notification-indicator__dot" />}
     </div>
   );
