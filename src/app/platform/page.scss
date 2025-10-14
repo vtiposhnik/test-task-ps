@@ -26,6 +26,10 @@
     height: 500px;
   }
 
+  @include mobile-screen {
+    padding: 40px;
+  }
+
   &__main {
     display: flex;
     justify-content: center;
@@ -61,6 +65,10 @@
     font-weight: 400;
     line-height: 20px;
     color: $c-white;
+
+    @include mobile-screen {
+      font-size: $font-size-sm;
+    }
   }
 
   &__breadcrumb {
