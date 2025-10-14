@@ -1,0 +1,43 @@
+.sidebar {
+  display: grid;
+  grid-template-columns: 60px 0;
+  height: 100vh;
+  transition: grid-template-columns 0.2s ease;
+  padding-top: $header-height;
+
+  @include mobile-screen {
+    display: none;
+  }
+
+  &--pinned {
+    grid-template-columns: 60px 360px;
+  }
+
+  &__main {
+    background: $c-primary-dark;
+    padding: 15px 0;
+    position: relative;
+    z-index: $z-sidebar-main;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__menu {
+    position: relative;
+  }
+
+  &__menu-icon:first-child {
+    margin-bottom: 5px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

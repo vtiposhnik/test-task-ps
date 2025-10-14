@@ -1,0 +1,16 @@
+.sidebar-item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 70px;
+  z-index: $z-sidebar-item;
+
+  &:hover,
+  &:focus,
+  &--active {
+    background: $c-primary;
+    border-radius: $border-radius-sm;
+  }
+}

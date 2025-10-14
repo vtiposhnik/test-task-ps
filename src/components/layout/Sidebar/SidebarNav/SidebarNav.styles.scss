@@ -1,0 +1,52 @@
+.nav {
+  width: 360px;
+  background: $c-background-light;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+  z-index: $z-sidebar-nav;
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: 700;
+    color: $c-text-primary;
+    margin: 0;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__menu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid $c-primary;
+
+    &:hover {
+      border-color: $c-primary-dark;
+    }
+
+    &--active {
+      background-color: rgba($c-primary, 0.1);
+    }
+  }
+
+  &__menu-text {
+    font-size: $font-size-sm;
+    font-weight: 700;
+    color: $c-text-primary;
+  }
+
+  &__menu-icon {
+    position: absolute;
+    right: 0;
+    top: 2px;
+  }
+}
