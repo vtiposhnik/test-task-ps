@@ -1,0 +1,9 @@
+export const menuIcon = '/assets/svg/menu-icon.svg';
+export const bellIcon = '/assets/svg/bell.svg';
+export const logoIcon = '/assets/svg/logo.svg';
+export const tengeIcon = '/assets/svg/tenge.svg';
+export const askIcon = '/assets/svg/ask-icon.svg';
+export const moonIcon = '/assets/svg/moon-icon.svg';
+export const langIcon = '/assets/svg/lang-icon.svg';
+export const pinIcon = '/assets/svg/pin-icon.svg';
+export const toggledPinIcon = '/assets/svg/pin-toggled-icon.svg';
