@@ -1,6 +1,27 @@
+
+## brief project description
+
+Взялся 9 октября вечером
+Завершил 14 октября вечером
+
+--- Страница с фигмы "Virtuozzo Application Platform" лежит под роутом /platform
+
+--- Страница с фигмы "все" лежит под /platform/browse
+
+Прошу прощения за путанницу, поздно понял что не ту страничку начал делать.
+
+
+## P.S
+
+--- Пункт "Использовать только функциональные компоненты и хуки (useState, useEffect и т.д.)." 
+    я воспринял так, что нельзя использовать "form state manager"ы, сделал через стейты,
+    и в целом ограничивал себя в использований либ
+
+
+
 ## Previous architecture with .module.scss files
 
-lewpi@fedora:~/WebstormProjects/test-task-ps$ find src/components | sed -e "s/[^-][^\/]_\// |/g" -e "s/|\([^ ]\)/|-\1/"
+```lewpi@fedora:~/WebstormProjects/test-task-ps$ find src/components | sed -e "s/[^-][^\/]_\// |/g" -e "s/|\([^ ]\)/|-\1/"
 |-components
 | |-layout
 | | |-Header
@@ -54,10 +75,7 @@ lewpi@fedora:~/WebstormProjects/test-task-ps$ find src/app | sed -e "s/[^-][^\/]
 | | | |-FeatureCard
 | | | | |-FeatureCard.component.tsx
 | | | | |-FeatureCard.module.scss
-| | |-page.config.ts
+| | |-page.config.ts```
 
-
-
-## brief project description
 
 
