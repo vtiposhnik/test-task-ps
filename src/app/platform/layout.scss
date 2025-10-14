@@ -1,0 +1,9 @@
+.platform__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  background-color: $c-background;
+
+  @include mobile-screen {
+    grid-template-columns: 1fr;
+  }
+}

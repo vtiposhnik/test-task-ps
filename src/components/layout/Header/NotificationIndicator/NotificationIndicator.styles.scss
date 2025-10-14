@@ -1,0 +1,29 @@
+.notification-indicator {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $c-white;
+
+  &--active {
+    border: 2px solid $c-green-1;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &__dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    background-color: $c-green-1;
+    border-radius: 50%;
+  }
+}
