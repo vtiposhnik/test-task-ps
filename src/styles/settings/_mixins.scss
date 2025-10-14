@@ -1,0 +1,17 @@
+@mixin screen($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin tablet-screen {
+  @media (width <= 1240px) {
+    @content;
+  }
+}
+
+@mixin mobile-screen {
+  @media (width <= 768px) {
+    @content;
+  }
+}
