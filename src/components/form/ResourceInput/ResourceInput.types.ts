@@ -1,4 +1,4 @@
-import { ResourceInputOption } from '@/app/platform/(components)/ResourceControl/ResourceControl.types';
+import { ResourceInputOption } from '@/app/platform/page.types';
 
 export type BaseProps = {
   name: string;

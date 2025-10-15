@@ -56,6 +56,21 @@ export const ResourceInput = (props: ResourceInputProps) => {
     );
   };
 
+  const getPricePerPeriodLabel = () => {
+    if (!pricePerUnit && pricePerUnit !== 0) {
+      return null;
+    }
+
+    return (
+      <div className="resource-input__price">
+        <span className="resource-input__price-amount">
+          {Math.round(pricePerUnit)}
+        </span>{' '}
+        тг за {unit}
+      </div>
+    );
+  };
+
   return (
     <div className="resource-input-container">
       <div className="resource-input__icon">
@@ -77,14 +92,7 @@ export const ResourceInput = (props: ResourceInputProps) => {
           {renderInput()}
         </div>
 
-        {pricePerUnit && unit && (
-          <div className="resource-input__price">
-            <span className="resource-input__price-amount">
-              {pricePerUnit.toFixed(2)}
-            </span>{' '}
-            тг за {unit}
-          </div>
-        )}
+        {getPricePerPeriodLabel()}
       </div>
     </div>
   );

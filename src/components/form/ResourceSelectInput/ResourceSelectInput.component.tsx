@@ -1,5 +1,6 @@
 // libraries
 import { Select } from 'antd';
+import Image from 'next/image';
 // components
 import { arrowDownIcon } from '@/components/icons/formIcons';
 // config
@@ -8,7 +9,6 @@ import { SELECT_INPUT_ROOT_STYLES } from '@/components/form/ResourceSelectInput/
 import './ResourceSelectInput.styles.scss';
 // types
 import { SelectOption } from '@/shared/types/types';
-import Image from 'next/image';
 
 interface SelectInputProps {
   name: string;
@@ -26,7 +26,9 @@ export const SelectInput = ({
   return (
     <Select
       id={name}
-      suffixIcon={<Image src={arrowDownIcon} alt="Toggle select" width={12} height={8} />}
+      suffixIcon={
+        <Image src={arrowDownIcon} alt="Toggle select" width={12} height={8} />
+      }
       className="resource-select-input"
       value={value}
       onChange={onChange}

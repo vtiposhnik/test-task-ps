@@ -15,13 +15,6 @@ import {
   routerIcon,
   publicNetworkIcon,
 } from '@/components/icons/formIcons';
-// types
-import {
-  BrowseResourcesState,
-  Period,
-  PublicNetwork,
-  RouterType,
-} from '@/app/platform/browse/page.types';
 // config
 import {
   BROWSE_RESOURCES_INITIAL_STATE,
@@ -29,19 +22,28 @@ import {
   PUBLIC_NETWORK_OPTIONS,
   ROUTER_OPTIONS,
 } from '@/app/platform/browse/page.config';
+import {
+  PERIOD_OPTIONS,
+  SELECT_INPUT_RESOURCE_PRICES,
+} from '@/app/platform/page.config';
 // styles
 import './page.styles.scss';
-
-const PERIOD_OPTIONS = [
-  { label: 'в час', value: 'hour' },
-  { label: 'в месяц', value: 'month' },
-];
+// hooks
+import { useToggleHook } from '@/shared/hooks/useToggle.hook';
+// types
+import {
+  BrowseResourcesState,
+  PublicNetwork,
+  RouterType,
+} from '@/app/platform/browse/page.types';
+import { Period } from '@/app/platform/page.types';
 
 export default function Browse() {
+  const [isOrderModalOpen, toggleOrderModal] = useToggleHook();
+
   const [resources, setResources] = useState<BrowseResourcesState>(
     BROWSE_RESOURCES_INITIAL_STATE
   );
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleChange = <K extends keyof BrowseResourcesState>(
     key: K,
@@ -115,15 +117,10 @@ export default function Browse() {
             value={resources.publicNetwork}
             onChange={(v) => handleChange('publicNetwork', v as PublicNetwork)}
             options={PUBLIC_NETWORK_OPTIONS}
-          />
-          <ResourceInput
-            name="router"
-            iconSrc={routerIcon}
-            label="Маршрутизатор"
-            value={resources.router}
-            onChange={(v) => handleChange('router', v as RouterType)}
-            options={ROUTER_OPTIONS}
-            hasTooltip
+            pricePerUnit={
+              SELECT_INPUT_RESOURCE_PRICES.public[resources.publicNetwork]
+            }
+            unit="тг/мес"
           />
           <ResourceInput
             name="routedIp"
@@ -135,6 +132,17 @@ export default function Browse() {
             unit="тг за адрес/мес"
             hasTooltip
           />
+          <ResourceInput
+            name="router"
+            iconSrc={routerIcon}
+            label="Маршрутизатор"
+            value={resources.router}
+            onChange={(v) => handleChange('router', v as RouterType)}
+            options={ROUTER_OPTIONS}
+            pricePerUnit={SELECT_INPUT_RESOURCE_PRICES.router[resources.router]}
+            unit="тг/мес"
+            hasTooltip
+          />
         </div>
 
         <div className="resources-browse__footer">
@@ -143,21 +151,21 @@ export default function Browse() {
             type="primary"
             size="large"
             htmlType="button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={toggleOrderModal}
           >
             Заказать
           </Button>
           <div className="resources-browse__total">
             за <strong>{total}</strong> тг /{' '}
-            {resources.period === 'hour' ? 'час' : 'месяц'}
+            {resources.period === Period.Hour ? 'час' : 'мес'}
           </div>
         </div>
       </form>
 
       <Modal
-        open={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        onOk={() => setIsModalOpen(false)}
+        open={isOrderModalOpen}
+        onCancel={toggleOrderModal}
+        onOk={toggleOrderModal}
       >
         Добавлено в корзину
       </Modal>

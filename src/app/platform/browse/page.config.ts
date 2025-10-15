@@ -1,4 +1,9 @@
 import { BrowseResourcesState } from '@/app/platform/browse/page.types';
+import { Period } from '@/app/platform/page.types';
+import {
+  calculateResourceSum,
+  SELECT_INPUT_RESOURCE_PRICES,
+} from '@/app/platform/page.config';
 
 export const PUBLIC_NETWORK_OPTIONS = [
   { label: 'Заказывать', value: 'order', price: 2000 },
@@ -18,39 +23,21 @@ export const BROWSE_RESOURCES_INITIAL_STATE: BrowseResourcesState = {
   routedIp: 1,
   publicNetwork: 'no_order',
   router: 'compact',
-  period: 'month',
+  period: Period.Hour,
 };
 
 export const calcluateBrowseTotal = ({
-  cpuCores,
-  ram,
-  nvmeDisk,
-  archiveDisk,
-  routedIp,
   publicNetwork,
   router,
   period,
+  ...rest
 }: BrowseResourcesState) => {
-  const PRICE = {
-    cpuCore: 1900,
-    ram: 5200,
-    nvme: 160,
-    archive: 10,
-    routedIp: 1000,
-    public: { order: 2000, no_order: 0 },
-    router: { compact: 3000, large: 6000 },
-  };
-
-  const multiplier = period === 'month' ? 1 : 1 / 30;
+  const multiplier = period === Period.Month ? 30 : 1;
 
   const base =
-    cpuCores * PRICE.cpuCore +
-    ram * PRICE.ram +
-    nvmeDisk * PRICE.nvme +
-    archiveDisk * PRICE.archive +
-    routedIp * PRICE.routedIp +
-    PRICE.public[publicNetwork] +
-    PRICE.router[router];
+    calculateResourceSum({ ...rest }) +
+    SELECT_INPUT_RESOURCE_PRICES.public[publicNetwork] +
+    SELECT_INPUT_RESOURCE_PRICES.router[router];
 
   return Math.round(base * multiplier).toLocaleString('ru-RU');
 };

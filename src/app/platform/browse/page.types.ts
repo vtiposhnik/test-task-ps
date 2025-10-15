@@ -1,4 +1,5 @@
-export type Period = 'hour' | 'month';
+import { Period } from '@/app/platform/page.types';
+
 export type PublicNetwork = 'order' | 'no_order';
 export type RouterType = 'compact' | 'large';
 
@@ -11,10 +12,4 @@ export interface BrowseResourcesState {
   publicNetwork: PublicNetwork;
   router: RouterType;
   period: Period;
-}
-
-export interface BrowseResourceInputOption {
-  label: string;
-  value: string;
-  price: number;
 }

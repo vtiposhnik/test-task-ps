@@ -15,23 +15,22 @@ import {
   RESOURCES_INITIAL_STATE,
 } from '@/app/platform/(components)/ResourceControl/ResourceControl.config';
 import { ResourcesState } from '@/app/platform/(components)/ResourceControl/ResourceControl.types';
-
-const PERIOD_OPTIONS = [
-  { label: 'в час', value: 'hour' },
-  { label: 'в месяц', value: 'month' },
-];
+import { useToggleHook } from '@/shared/hooks/useToggle.hook';
+import { Period } from '@/app/platform/page.types';
+import { PERIOD_OPTIONS } from '@/app/platform/page.config';
 
 export const ResourceControlComponent = () => {
   const [resources, setResources] = useState<ResourcesState>(
     RESOURCES_INITIAL_STATE
   );
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOrderModalOpen, toggleOrderModal] = useToggleHook();
 
-  const handleChange = (
-    key: keyof typeof resources,
-    value: number | string
+  const handleChange = <K extends keyof ResourcesState>(
+    key: K,
+    value: ResourcesState[K]
   ) => {
+    console.log(key, value);
     setResources((prev) => ({ ...prev, [key]: value }));
   };
 
@@ -101,21 +100,21 @@ export const ResourceControlComponent = () => {
             type="primary"
             size="large"
             htmlType="button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={toggleOrderModal}
           >
             Заказать
           </Button>
           <div className="resources__total">
             за <strong>{total}</strong> тг /{' '}
-            {resources.period === 'hour' ? 'час' : 'месяц'}
+            {resources.period === Period.Hour ? 'час' : 'месяц'}
           </div>
         </div>
       </form>
 
       <Modal
-        open={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        onOk={() => setIsModalOpen(false)}
+        open={isOrderModalOpen}
+        onCancel={toggleOrderModal}
+        onOk={toggleOrderModal}
       >
         Добавлено в корзину
       </Modal>

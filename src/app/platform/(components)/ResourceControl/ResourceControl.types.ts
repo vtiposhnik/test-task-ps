@@ -1,4 +1,4 @@
-export type Period = 'hour' | 'month';
+import { Period } from '@/app/platform/page.types';
 
 export interface ResourcesState {
   reservedCloudlets: number;
@@ -6,10 +6,4 @@ export interface ResourcesState {
   diskSpace: number;
   dedicatedIp: number;
   period: Period;
-}
-
-export interface ResourceInputOption {
-  label: string;
-  value: string;
-  price: number;
 }
